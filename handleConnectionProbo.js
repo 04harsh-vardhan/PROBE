@@ -27,8 +27,8 @@ function handleConnectionProbo(connection) {
       return;
     }
     if (data?.sid) {
-      connection.sendUTF(["subscribe_orderbook", 3534269]);
-      connection.sendUTF(["subscribe_ltp_stream", 3534269]);
+      connection.sendUTF(["subscribe_orderbook", 3535417]);
+      connection.sendUTF(["subscribe_ltp_stream", 3535417]);
       return;
     }
     if (Number(data) === 2) {
