@@ -20,16 +20,20 @@ function handleConnectionProbo(connection) {
     }
     const data = JSON.parse(formatedString);
     if (data?.upgrades) {
+        console.log(1)
       connection.sendUTF(token);
       return;
     }
     if (data?.sid) {
-      connection.sendUTF(["subscribe_orderbook", 3535417]);
+      connection.sendUTF(JSON.stringify(["subscribe_orderbook", 3535417]));
+      console.log(2)
       // connection.sendUTF(["subscribe_ltp_stream", 3535417]);
       return;
     }
     if (Number(data) === 2) {
-      connection.sendUTF(3);
+      connection.sendUTF('3');
+      console.log(3)
+      return;
     }
   });
 }
