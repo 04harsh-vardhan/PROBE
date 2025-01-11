@@ -1,4 +1,4 @@
-const token = { token: "1BcooLnFt1Lp2k5bXbcyziyhHsMe6kosMKwWV6HQYno=" };
+const token = `${40}{ token: "1BcooLnFt1Lp2k5bXbcyziyhHsMe6kosMKwWV6HQYno=" }`;
 
 function handleConnectionProbo(connection) {
   console.log("Probo client connected");
@@ -11,10 +11,10 @@ function handleConnectionProbo(connection) {
   });
   connection.on("message", function (message) {
     const formatedString = formatString(message.utf8Data);
-  
+
     if (message.type === "utf8") {
       const data = JSON.parse(formatedString);
-    console.log('data -->  ',data)
+      console.log("data -->  ", data);
       if (data?.upgrades) {
         connection.sendUTF(token);
         return;
