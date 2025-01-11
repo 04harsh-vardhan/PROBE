@@ -1,4 +1,4 @@
-const token = `${40}{ token: "1BcooLnFt1Lp2k5bXbcyziyhHsMe6kosMKwWV6HQYno=" }`;
+const token = `${40}{ "token": "1BcooLnFt1Lp2k5bXbcyziyhHsMe6kosMKwWV6HQYno=" }`;
 
 function handleConnectionProbo(connection) {
   console.log("Probo client connected");
