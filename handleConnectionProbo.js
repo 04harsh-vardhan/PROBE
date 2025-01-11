@@ -16,6 +16,7 @@ function handleConnectionProbo(connection) {
       const data = JSON.parse(formatedString);
       console.log("data -->  ", data);
       if (data?.upgrades) {
+        console.log("token-> ",token)
         connection.sendUTF(token);
         return;
       }
