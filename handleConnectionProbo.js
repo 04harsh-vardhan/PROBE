@@ -11,7 +11,7 @@ function handleConnectionProbo(connection) {
     console.log("Connection Closed -->  ", data);
   });
   connection.on("message", function (message) {
-    let formatedString = formatString(message.utf8Data);
+    let formatedString;
     if (firstCheck) {
       firstCheck = false;
       formatedString = message.utf8Data.slice(1);
@@ -19,21 +19,18 @@ function handleConnectionProbo(connection) {
       formatString = formatString(message.utf8Data);
     }
     const data = JSON.parse(formatedString);
-    console.log("data -->  ", data);
     if (data?.upgrades) {
-      console.log("token-> ", token);
       connection.sendUTF(token);
       return;
     }
     if (data?.sid) {
       connection.sendUTF(["subscribe_orderbook", 3535417]);
-     // connection.sendUTF(["subscribe_ltp_stream", 3535417]);
+      // connection.sendUTF(["subscribe_ltp_stream", 3535417]);
       return;
     }
     if (Number(data) === 2) {
       connection.sendUTF(3);
     }
-    console.log(data);
   });
 }
 
