@@ -25,7 +25,7 @@ function handleConnectionProbo(connection) {
       return;
     }
     if (data?.sid) {
-      connection.sendUTF(JSON.stringify(`${42}["subscribe_orderbook", 3535488]`));
+     // connection.sendUTF(JSON.stringify(42+["subscribe_orderbook", 3535488]));
       console.log(2)
       // connection.sendUTF(["subscribe_ltp_stream", 3535417]);
       return;
