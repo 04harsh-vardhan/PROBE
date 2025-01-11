@@ -12,6 +12,11 @@ function handleConnectionProbo(connection) {
   });
   connection.on("message", function (message) {
     console.log("message ", message);
+    if (Number(message) === 2) {
+      connection.sendUTF("3");
+      console.log(3);
+      return;
+    }
     let formatedString;
     if (firstCheck) {
       firstCheck = false;
@@ -29,11 +34,6 @@ function handleConnectionProbo(connection) {
       // connection.sendUTF(JSON.stringify(42+["subscribe_orderbook", 3535488]));
       console.log(2, " --   ", data);
       // connection.sendUTF(["subscribe_ltp_stream", 3535417]);
-      return;
-    }
-    if (Number(data) === 2) {
-      connection.sendUTF("3");
-      console.log(3);
       return;
     }
   });
