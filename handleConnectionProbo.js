@@ -11,6 +11,7 @@ function handleConnectionProbo(connection) {
     console.log("Connection Closed -->  ", data);
   });
   connection.on("message", function (message) {
+    console.log("message ", message);
     let formatedString;
     if (firstCheck) {
       firstCheck = false;
