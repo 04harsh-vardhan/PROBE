@@ -1,5 +1,5 @@
 const token = `${40}{ "token": "1BcooLnFt1Lp2k5bXbcyziyhHsMe6kosMKwWV6HQYno=" }`;
-let firstCheck = true
+let firstCheck = true;
 
 function handleConnectionProbo(connection) {
   console.log("Probo client connected");
@@ -7,17 +7,16 @@ function handleConnectionProbo(connection) {
   connection.on("error", function (error) {
     console.log("Connection Error: " + error.toString());
   });
-  connection.on("close", function () {
-    console.log("Connection Closed");
+  connection.on("close", function (data) {
+    console.log("Connection Closed -->  ", data);
   });
   connection.on("message", function (message) {
     let formatedString = formatString(message.utf8Data);
-    if(firstCheck){
-        firstCheck = false;
-        formatedString = message.utf8Data.slice(1)
-    }
-    else{
-        formatString = formatString(message.utf8Data)
+    if (firstCheck) {
+      firstCheck = false;
+      formatedString = message.utf8Data.slice(1);
+    } else {
+      formatString = formatString(message.utf8Data);
     }
     const data = JSON.parse(formatedString);
     console.log("data -->  ", data);
