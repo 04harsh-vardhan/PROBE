@@ -14,7 +14,7 @@ function handleConnectionProbo(connection) {
   
     if (message.type === "utf8") {
       const data = JSON.parse(formatedString);
-    
+    console.log('data -->  ',data)
       if (data?.upgrades) {
         connection.sendUTF(token);
         return;
