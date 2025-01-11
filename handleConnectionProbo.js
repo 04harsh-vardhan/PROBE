@@ -12,7 +12,7 @@ function handleConnectionProbo(connection) {
   });
   connection.on("message", function (message) {
     console.log("message ", message);
-    if (Number(message) === 2) {
+    if (Number(message.utf8Data) === 2) {
       connection.sendUTF("3");
       console.log(3);
       return;
