@@ -16,7 +16,7 @@ function handleConnectionProbo(connection) {
       firstCheck = false;
       formatedString = message.utf8Data.slice(1);
     } else {
-      formatString = formatString(message.utf8Data);
+      formatedString = formatString(message.utf8Data);
     }
     const data = JSON.parse(formatedString);
     if (data?.upgrades) {
