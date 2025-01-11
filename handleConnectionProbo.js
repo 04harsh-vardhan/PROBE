@@ -20,19 +20,19 @@ function handleConnectionProbo(connection) {
     }
     const data = JSON.parse(formatedString);
     if (data?.upgrades) {
-        console.log(1)
+      console.log(1, " --- >  ", data);
       connection.sendUTF(token);
       return;
     }
     if (data?.sid) {
-     // connection.sendUTF(JSON.stringify(42+["subscribe_orderbook", 3535488]));
-      console.log(2)
+      // connection.sendUTF(JSON.stringify(42+["subscribe_orderbook", 3535488]));
+      console.log(2, " --   ", data);
       // connection.sendUTF(["subscribe_ltp_stream", 3535417]);
       return;
     }
     if (Number(data) === 2) {
-      connection.sendUTF('3');
-      console.log(3)
+      connection.sendUTF("3");
+      console.log(3);
       return;
     }
   });
